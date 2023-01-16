@@ -1,0 +1,22 @@
+{% extends 'fittnessApp/main.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+{% for diet in diets %}
+  <div class="col-lg-4">
+    <img class="thumbnail" src="{{ diet.imageURL }}">
+      <div class="box-element product">
+        <h6><strong>{{ diet.name }}</strong></h6>
+        <hr>
+        <button data-product={{diet.id}} data-action=add
+           class="btn btn-outline-secondary add-btn update-cart">Добави в количката
+        </button>
+        <h4 style="display: inline-block; float: right">
+          <strong>{{ diet.price|floatformat:2 }} лв</strong>
+        </h4>
+      </div>
+  </div>
+{% endfor %}
+
+</div>
+{% endblock content %}
